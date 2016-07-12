@@ -45,14 +45,6 @@ RUN /etc/init.d/postgresql start &&\
 USER root
 
 
-### SOLR ###
-
-RUN ./manage.py build_solr_schema > schema.xml
-RUN cp schema.xml apache-solr-3.6.2/example/solr/conf/
-RUN cp apache-solr-3.6.2/example/solr/conf/stopwords.txt apache-solr-3.6.2/example/solr/conf/stopwords_en.txt
-RUN export PATH=$PATH:/apache-solr-3.6.2/example/solr/conf/
-
-
 EXPOSE 8000
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
