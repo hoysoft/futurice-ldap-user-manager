@@ -1,4 +1,4 @@
-FROM fum-docker
+FROM fum
 
 RUN cp local_settings.py.template local_settings.py
 RUN sed -i local_settings.py \
